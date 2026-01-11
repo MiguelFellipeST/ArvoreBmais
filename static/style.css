@@ -1,0 +1,182 @@
+body {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /* Define a família de fontes para o corpo da página */
+  margin: 20px; /* Adiciona uma margem de 20px em torno de todo o conteúdo da página */
+  background-color: #f0f0f0; /* Define uma cor de fundo suave e clara para o corpo da página */
+}
+
+h1 {
+  color: #ffffff; /* Define uma cor de texto escura (quase preta) para os títulos h1 */
+}
+
+h2 {
+  color: #4CAF50; /* Define um tom de verde claro para os títulos h2 */
+}
+
+form {
+  margin-bottom: 20px; /* Adiciona uma margem inferior de 20px para separar o formulário de outros elementos */
+  background-color: #fff; /* Define um fundo branco para os formulários */
+  padding: 20px; /* Adiciona um preenchimento interno de 20px para o formulário */
+  border-radius: 5px; /* Cria bordas arredondadas no formulário */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Aplica uma sombra sutil e leve ao formulário */
+}
+
+input {
+  margin: 5px; /* Define uma margem de 5px ao redor de cada campo de entrada */
+  padding: 5px; /* Adiciona um preenchimento de 5px dentro dos campos de entrada */
+  border: 1px solid #ccc; /* Aplica uma borda de 1px de cor cinza clara aos campos de entrada */
+  border-radius: 3px; /* Cria bordas arredondadas nos campos de entrada */
+}
+
+button {
+  padding: 10px 15px; /* Adiciona preenchimento de 10px na parte superior e inferior e 15px nas laterais do botão */
+  background-color: #4CAF50; /* Define um fundo verde claro para o botão */
+  color: #fff; /* Define a cor do texto do botão como branca */
+  border: none; /* Remove qualquer borda padrão do botão */
+  border-radius: 3px; /* Aplica bordas arredondadas no botão */
+  cursor: pointer; /* Altera o cursor para indicar que o botão é clicável */
+}
+
+button:hover {
+  background-color: #3e8e41; /* Torna o fundo do botão mais escuro quando o mouse passa sobre ele */
+}
+
+#mensagens {
+  margin-top: 20px; /* Mrgem superior de 20px para separar as mensagens de outros elementos */
+  font-weight: bold; 
+  color: #333; /* Cor do texto */
+}
+
+
+/* Definição da Nova Paleta Elegante */
+:root {
+    --bg-cream: #fbf5ef;       /* Fundo Principal */
+    --blue-indigo: #494d7e;    /* Botões Principais e Títulos */
+    --purple-mute: #8b6d9c;    /* Detalhes, Borda de Inputs e Botões Secundários */
+    --dark-navy: #272744;      /* Texto e Elementos de Contraste */
+    --white: #ffffff;          /* Fundo dos Cards */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-cream);
+    color: var(--dark-navy);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    max-width: 1000px;
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    color: var(--blue-indigo);
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--purple-mute);
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+h3 {
+    color: var(--dark-navy);
+    margin-top: 0;
+    border-bottom: 1px solid rgba(73, 77, 126, 0.2); 
+    padding-bottom: 5px;
+}
+
+.card {
+    background-color: var(--white);
+    border: 1px solid rgba(39, 39, 68, 0.1);
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(39, 39, 68, 0.05); 
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 0.9em;
+    color: var(--blue-indigo);
+}
+
+input {
+    padding: 10px;
+    background-color: var(--bg-cream);
+    border: 1px solid #ccc;
+    color: var(--dark-navy);
+    border-radius: 5px;
+    font-size: 14px;
+    width: 150px;
+    transition: all 0.3s;
+}
+
+input:focus {
+    border-color: var(--purple-mute);
+    outline: none;
+    box-shadow: 0 0 5px rgba(139, 109, 156, 0.3);
+    background-color: #fff;
+}
+
+button {
+    padding: 10px 25px;
+    background-color: var(--blue-indigo);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: var(--dark-navy);
+    transform: translateY(-2px);
+}
+
+.btn-danger {
+    background-color: var(--purple-mute); 
+    color: #fff;
+}
+
+.btn-danger:hover {
+    background-color: var(--dark-navy);
+}
+
+.btn-success {
+    background-color: var(--blue-indigo);
+}
+
+.btn-success:hover {
+    background-color: var(--dark-navy);
+}
+
+/* Diagrama Mermaid */
+#diagrama-arvore {
+    width: 95%; /* 95%, 100% ta saindo pra fora */
+    overflow-x: auto;
+    border: 1px dashed var(--purple-mute);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+    min-height: 250px;
+    background-color: var(--white); 
+}

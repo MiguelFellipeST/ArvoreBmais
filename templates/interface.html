@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizador de Árvore B+</title>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+
+<div class="container">
+    <h1>Gerenciador de Árvore B+</h1>
+
+    <div class="card">
+        <h3>1. Configurar e Iniciar</h3>
+        <form id="form-iniciar" class="form-row">
+            <div class="form-group">
+                <label>Nº Campos:</label>
+                <input type="number" name="n_campos" value="1" required>
+            </div>
+            <div class="form-group">
+                <label>Tam. Página (bytes):</label>
+                <input type="number" name="tamanho_pagina" value="30" required>
+            </div>
+            <button type="submit" class="btn-success">Iniciar Árvore</button>
+        </form>
+    </div>
+
+    <div class="card">
+        <h3>2. Operações</h3>
+        <div class="form-row">
+            <form id="form-inserir" class="form-row" style="margin-right: 20px;">
+                <div class="form-group">
+                    <label>Inserir Chave:</label>
+                    <input type="number" name="chave" placeholder="Ex: 10" required>
+                </div>
+                <button type="submit">Inserir</button>
+            </form>
+
+            <form id="form-remover" class="form-row">
+                <div class="form-group">
+                    <label>Remover Chave:</label>
+                    <input type="number" name="chave" placeholder="Ex: 10" required>
+                </div>
+                <button type="submit" class="btn-danger">Remover</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Visualização Gráfica</h3>
+        <div id="diagrama-arvore" class="mermaid">
+            graph TD;
+            Inicio[Aguardando iniciar árvore...];
+            style Inicio fill:#fff,stroke:#333,stroke-dasharray: 5 5;
+        </div>
+    </div>
+</div>
+
+<script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+
+    async function atualizarDiagrama(codigoMermaid) {
+        const elemento = document.getElementById('diagrama-arvore');
+        elemento.removeAttribute('data-processed');
+        elemento.innerHTML = codigoMermaid;
+        await mermaid.run({ nodes: [elemento] });
+    }
+
+    function configurarFormulario(idForm, rota) {
+        document.getElementById(idForm).addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+
+            fetch(rota, { method: 'POST', body: formData })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert('Erro: ' + data.error);
+                } else {
+                    if (data.diagrama) {
+                        atualizarDiagrama(data.diagrama);
+                    }
+                }
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                alert("Erro ao conectar com o servidor.");
+            });
+        });
+    }
+
+    configurarFormulario('form-iniciar', '/iniciar');
+    configurarFormulario('form-inserir', '/inserir');
+    configurarFormulario('form-remover', '/remover');
+</script>
+
+</body>
+</html>
